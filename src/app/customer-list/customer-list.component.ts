@@ -1,4 +1,4 @@
-// src/app/components/customer-list/customer-list.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { CustomerListService } from '../services/customer-list.service';
 

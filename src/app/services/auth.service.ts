@@ -19,7 +19,7 @@ export class AuthService {
       map((users) => {
         const user = users.find((u) => u.username === username && u.password === password);
         if (user) {
-          // Store a token in sessionStorage
+
           sessionStorage.setItem(this.tokenKey, 'your-secret-token');
           return true;
         } else {
