@@ -1,0 +1,15 @@
+<div class="container mt-4">
+    <h2>Add Customer</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="customerName" class="form-label">Customer Name</label>
+        <input type="text" class="form-control" id="customerName" [(ngModel)]="customerName" name="customerName" required>
+      </div>
+      <div class="mb-3">
+        <label for="customerPass" class="form-label">Customer Passworrd</label>
+        <input type="text " class="form-control" id="productPrice" [(ngModel)]="customerPass" name="customerPass" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  

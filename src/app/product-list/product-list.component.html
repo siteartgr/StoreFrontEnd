@@ -1,0 +1,22 @@
+
+<div class="container mt-4">
+    <h2>Product List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product._id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price | currency:'EUR' }}</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

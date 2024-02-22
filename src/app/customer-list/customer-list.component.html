@@ -1,0 +1,22 @@
+
+<div class="container mt-4">
+  <h2 class="mb-4">Customer List</h2>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer._id }}</td>
+        <td>{{ customer.username }}</td>
+        <td>{{ customer.password }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
