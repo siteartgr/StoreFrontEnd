@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductListService } from '../services/product-list.service';
+import { AuthService } from '../services/auth.service';
+import { CartService } from '../services/cart.service'; 
 
 @Component({
   selector: 'app-product-list',
@@ -9,7 +11,11 @@ import { ProductListService } from '../services/product-list.service';
 export class ProductListComponent implements OnInit {
   products: any[] = [];
 
-  constructor(private productService: ProductListService) { }
+  constructor(
+    private productService: ProductListService,
+    private authService: AuthService,
+    private cartService: CartService 
+  ) {}
 
   ngOnInit() {
     this.getProducts();
@@ -22,8 +28,16 @@ export class ProductListComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching products:', error);
-      
       }
     );
+  }
+
+  addProductToCart(product: any) {
+
+    this.cartService.addProduct(product);
+  }
+
+  isAuthenticated(): boolean {
+    return this.authService.getIsAuthenticated();
   }
 }

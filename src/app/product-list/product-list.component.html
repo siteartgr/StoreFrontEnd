@@ -1,22 +1,30 @@
-
 <div class="container mt-4">
-    <h2>Product List</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of products">
-          <td>{{ product._id }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.price | currency:'EUR' }}</td>
+  <h2>Product List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Add to cart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product._id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | currency:'EUR' }}</td>
+        <td *ngIf="isAuthenticated()">
+          <button (click)="addProductToCart(product)">Add</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-        </tr>
-      </tbody>
-    </table>
+  <div class="added-products" *ngIf="isAuthenticated()">
+    <h3>Added Products</h3>
+    <ul>
+      <li *ngFor="let addedProduct of cartService.getAddedProducts()">{{ addedProduct.name }}</li>
+    </ul>
   </div>
-  
+</div>
