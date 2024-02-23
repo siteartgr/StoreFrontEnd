@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/customers';
+  private apiUrl = 'https://storebackend-629t.onrender.com/customers';
   private tokenKey = 'authToken';
 
   constructor(private http: HttpClient, private router: Router) {}

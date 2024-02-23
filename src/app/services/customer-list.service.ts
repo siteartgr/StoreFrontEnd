@@ -8,7 +8,7 @@ import { Customer } from '../models/customer.model';
   providedIn: 'root',
 })
 export class CustomerListService {
-  private apiUrl = 'http://localhost:3000/customers';
+  private apiUrl = 'https://storebackend-629t.onrender.com/customers';
 
   constructor(private http: HttpClient) {}
 

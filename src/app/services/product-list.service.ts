@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductListService {
-  private apiUrl = 'http://localhost:3000/products';
+  private apiUrl = 'https://storebackend-629t.onrender.com/products';
   constructor(private http: HttpClient) { }
 
   getAllProducts(): Observable<any[]> {
