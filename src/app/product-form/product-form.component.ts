@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
 export class ProductFormComponent {
   productName: string = '';
   productPrice: number | null = null;
-  url: 'https://storebackend-629t.onrender.com/';
+  url: string = 'https://storebackend-629t.onrender.com/';
   constructor(private http: HttpClient, private router: Router) {}
 
   onSubmit() {
 
     const productData = { name: this.productName, price: this.productPrice };
-    this.http.post(`${this.url}/products`, productData).subscribe(
+    this.http.post(`${this.url}products`, productData).subscribe(
       (response) => {
         console.log('Product added successfully:', response);
 
