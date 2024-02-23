@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './customer-form.component.css'
 })
 export class CustomerFormComponent {
-   url: 'https://storebackend-629t.onrender.com/';
+  url: string = 'https://storebackend-629t.onrender.com/';
   customerName: string = '';
   customerPass: string | null = null;
 
@@ -17,7 +17,7 @@ export class CustomerFormComponent {
   onSubmit() {
 
     const customerData = { username: this.customerName, password: this.customerPass };
-    this.http.post(this.url + 'customers', customerData).subscribe(
+    this.http.post(`${this.url}customers`, customerData).subscribe(
       (response) => {
         console.log('Customer added successfully:', response);
      
