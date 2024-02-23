@@ -16,7 +16,7 @@ export class ProductFormComponent {
   onSubmit() {
 
     const productData = { name: this.productName, price: this.productPrice };
-    this.http.post(this.url + 'products', productData).subscribe(
+    this.http.post(`${this.url}/products`, productData).subscribe(
       (response) => {
         console.log('Product added successfully:', response);
 
