@@ -16,7 +16,7 @@ export class ProductListService {
 
 
   submitOrder(orderData: any): Observable<any> {
-    const orderApiUrl = 'https://storebackend-629t.onrender.com//orders';
+    const orderApiUrl = 'https://storebackend-629t.onrender.com/orders';
     
     const productNames = orderData.products.map((product: any) => product.name);
   
