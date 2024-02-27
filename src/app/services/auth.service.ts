@@ -12,6 +12,7 @@ export class AuthService {
   private apiUrl = 'https://storebackend-629t.onrender.com/customers';
   private tokenKey = 'authToken';
   private userIdKey = 'userId';
+  private userName = 'username'
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -23,6 +24,7 @@ export class AuthService {
 
           sessionStorage.setItem(this.tokenKey, 'your-secret-token');
           sessionStorage.setItem(this.userIdKey, user._id);
+          sessionStorage.setItem(this.userName, user.username);
           return true;
         } else {
           return false;
@@ -35,6 +37,7 @@ export class AuthService {
 
     sessionStorage.removeItem(this.tokenKey);
     sessionStorage.removeItem(this.userIdKey);
+    
     this.router.navigate(['/login']);
   }
 
@@ -44,5 +47,10 @@ export class AuthService {
   }
   getUserId(): string | null {
     return sessionStorage.getItem(this.userIdKey);
+  }
+  
+  getUserName(): string | null 
+  {
+    return sessionStorage.getItem(this.userName);
   }
 }

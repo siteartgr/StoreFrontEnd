@@ -45,7 +45,8 @@ export class ProductListComponent implements OnInit {
     const orderData = {
       products: this.cartService.getProductsInCart(),
       orderDate: new Date().toISOString(),
-      customerId: this.authService.getUserId() 
+      customerId: this.authService.getUserId(),
+      customerName: this.authService.getUserName()
     };
 
   
