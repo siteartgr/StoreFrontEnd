@@ -8,6 +8,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './home/home.component';
+import { OrderListComponent } from './order-list/order-list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'products', component: ProductListComponent,canActivate: [AuthGuard] },
   { path: 'products/new', component: ProductFormComponent,canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },
-  { path: '**', redirectTo: '' },
+  { path: 'orders', component: OrderListComponent,canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '' }
 
 ];
 

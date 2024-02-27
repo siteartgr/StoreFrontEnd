@@ -17,4 +17,7 @@ export class CartService {
   clearCart(): void {
     this.addedProducts = [];
   }
+  getProductsInCart(): any[] {
+    return this.addedProducts;
+  }
 }

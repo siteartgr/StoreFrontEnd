@@ -27,4 +27,6 @@
       <li *ngFor="let addedProduct of cartService.getAddedProducts()">{{ addedProduct.name }}</li>
     </ul>
   </div>
+  <button class="btn btn-primary" (click)="submitOrder()">Submit Order</button>
 </div>
+

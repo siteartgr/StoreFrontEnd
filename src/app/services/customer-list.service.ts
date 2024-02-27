@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Customer } from '../models/customer.model'; 
 
 @Injectable({
@@ -16,4 +16,9 @@ export class CustomerListService {
 
   return this.http.get<Customer[]>(this.apiUrl);
  }
+ getCustomerById(customerId: string): Observable<Customer | undefined> {
+  return this.getAllCustomers().pipe(
+    map(customers => customers.find(customer => (customer.id as any) === customerId))
+  );
+}
 }

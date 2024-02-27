@@ -1,0 +1,23 @@
+
+<div class="container mt-4">
+    <h2>Order List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Products</th>
+          <th>Customer</th>
+          <th>Order Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order._id }}</td>
+          <td>{{ order.products.join(', ') }}</td>
+          <td>{{ order.customer }}</td>
+          <td>{{ order.orderDate | date: 'short' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

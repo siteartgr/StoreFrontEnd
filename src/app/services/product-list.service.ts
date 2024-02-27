@@ -13,4 +13,20 @@ export class ProductListService {
   getAllProducts(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+
+
+  submitOrder(orderData: any): Observable<any> {
+    const orderApiUrl = 'https://storebackend-629t.onrender.com//orders';
+    
+    const productNames = orderData.products.map((product: any) => product.name);
+  
+    const updatedOrderData = {
+      ...orderData,
+      products: productNames,
+    };
+  
+    console.log(updatedOrderData);
+  
+    return this.http.post(orderApiUrl, updatedOrderData);
+  }
 }

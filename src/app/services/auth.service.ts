@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private apiUrl = 'https://storebackend-629t.onrender.com/customers';
   private tokenKey = 'authToken';
+  private userIdKey = 'userId';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -21,6 +22,7 @@ export class AuthService {
         if (user) {
 
           sessionStorage.setItem(this.tokenKey, 'your-secret-token');
+          sessionStorage.setItem(this.userIdKey, user._id);
           return true;
         } else {
           return false;
@@ -32,11 +34,15 @@ export class AuthService {
   logout(): void {
 
     sessionStorage.removeItem(this.tokenKey);
+    sessionStorage.removeItem(this.userIdKey);
     this.router.navigate(['/login']);
   }
 
   getIsAuthenticated(): boolean {
 
     return !!sessionStorage.getItem(this.tokenKey);
+  }
+  getUserId(): string | null {
+    return sessionStorage.getItem(this.userIdKey);
   }
 }

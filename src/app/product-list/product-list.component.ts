@@ -40,4 +40,30 @@ export class ProductListComponent implements OnInit {
   isAuthenticated(): boolean {
     return this.authService.getIsAuthenticated();
   }
+
+  submitOrder() {
+    const orderData = {
+      products: this.cartService.getProductsInCart(),
+      orderDate: new Date().toISOString(),
+      customerId: this.authService.getUserId() 
+    };
+
+  
+    this.productService.submitOrder(orderData).subscribe(
+      (response) => {
+        console.log('Order submitted successfully:', response);
+   
+        this.cartService.clearCart();
+
+  
+  
+      },
+      (error) => {
+        console.error('Error submitting order:', error);
+ 
+      }
+    );
+  }
+
+  
 }

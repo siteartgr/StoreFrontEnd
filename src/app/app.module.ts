@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { OrderListComponent } from './order-list/order-list.component';
 
 
 
@@ -23,7 +24,8 @@ import { HomeComponent } from './home/home.component';
     ProductFormComponent,
     NavbarComponent,
     HomeComponent,
-    CustomerFormComponent
+    CustomerFormComponent,
+    OrderListComponent
 
 
     
