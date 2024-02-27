@@ -4,17 +4,17 @@
     <table class="table">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>Order ID</th>
           <th>Products</th>
-          <th>Customer</th>
+          <th>Customer Name</th>
           <th>Order Date</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let order of orders">
-          <td>{{ order.name }}</td>
+          <td>{{ order._id }}</td>
           <td>{{ order.products.join(', ') }}</td>
-          <td>{{ order.customer }}</td>
+          <td>{{ order.customerName }}</td>
           <td>{{ order.orderDate | date: 'short' }}</td>
         </tr>
       </tbody>
