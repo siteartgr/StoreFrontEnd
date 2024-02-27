@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductListService } from '../services/product-list.service';
 import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -14,7 +15,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductListService,
     private authService: AuthService,
-    private cartService: CartService 
+    private cartService: CartService ,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -55,9 +57,10 @@ export class ProductListComponent implements OnInit {
         console.log('Order submitted successfully:', response);
    
         this.cartService.clearCart();
-
-  
-  
+        setTimeout(() => {
+          alert('Order sent!');
+          this.router.navigate(['/orders']);
+        }, 500);
       },
       (error) => {
         console.error('Error submitting order:', error);
