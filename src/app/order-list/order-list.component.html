@@ -12,7 +12,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let order of orders">
-          <td>{{ order._id }}</td>
+          <td>{{ order.name }}</td>
           <td>{{ order.products.join(', ') }}</td>
           <td>{{ order.customer }}</td>
           <td>{{ order.orderDate | date: 'short' }}</td>
